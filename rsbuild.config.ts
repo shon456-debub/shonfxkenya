@@ -43,16 +43,6 @@ export default defineConfig({
                 GROWTHBOOK_DECRYPTION_KEY: JSON.stringify(process.env.GROWTHBOOK_DECRYPTION_KEY),
             },
         },
-        alias: {
-            react: path.resolve('./node_modules/react'),
-            'react-dom': path.resolve('./node_modules/react-dom'),
-            '@/external': path.resolve(__dirname, './src/external'),
-            '@/components': path.resolve(__dirname, './src/components'),
-            '@/hooks': path.resolve(__dirname, './src/hooks'),
-            '@/utils': path.resolve(__dirname, './src/utils'),
-            '@/constants': path.resolve(__dirname, './src/constants'),
-            '@/stores': path.resolve(__dirname, './src/stores'),
-        },
     },
     output: {
         copy: [
@@ -98,7 +88,18 @@ export default defineConfig({
     tools: {
         rspack: {
             plugins: [],
-            resolve: {},
+            resolve: {
+                alias: {
+                    react: path.resolve('./node_modules/react'),
+                    'react-dom': path.resolve('./node_modules/react-dom'),
+                    '@/external': path.resolve(__dirname, './src/external'),
+                    '@/components': path.resolve(__dirname, './src/components'),
+                    '@/hooks': path.resolve(__dirname, './src/hooks'),
+                    '@/utils': path.resolve(__dirname, './src/utils'),
+                    '@/constants': path.resolve(__dirname, './src/constants'),
+                    '@/stores': path.resolve(__dirname, './src/stores'),
+                },
+            },
             module: {
                 rules: [
                     {
